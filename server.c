@@ -242,7 +242,7 @@ void controller(char *msg, char *buff)
     if (!strcmp(CADASTRO, split))
         cadastra(buff, aux_msg);
 
-    if (!strcmp(GENERO, split)) {
+    else if (!strcmp(GENERO, split)) {
         split = strtok(NULL, " ");
         if (split == NULL) {
             strcpy(buff, "Insira um - separando o comando do ID do filme, e o Genero a ser adicionado\n");
@@ -251,7 +251,7 @@ void controller(char *msg, char *buff)
         }
 
     }
-    if (!strcmp(LISTA_GENERO, split))
+    else if (!strcmp(LISTA_GENERO, split))
     {
         split = strtok(NULL, "");
         if (split == NULL)
@@ -259,7 +259,7 @@ void controller(char *msg, char *buff)
         else
             list(buff, split, LISTA_GENEROS);
     }
-    if (!strcmp(LISTA_ID, split))
+    else if (!strcmp(LISTA_ID, split))
     {
         split = strtok(NULL, "");
         if (split == NULL)
@@ -268,7 +268,7 @@ void controller(char *msg, char *buff)
             list(buff, split, LISTA_IDS);
     }
     
-    if (!strcmp(DELETE, split))
+    else if (!strcmp(DELETE, split))
     {
         split = strtok(NULL, "");
         if (split == NULL)
@@ -276,9 +276,9 @@ void controller(char *msg, char *buff)
         else
             remove_movie(buff, split);
     }
-    if (!strcmp(LISTA_TITULO, split))
+    else if (!strcmp(LISTA_TITULO, split))
         list(buff, split, LISTA_TITULOS);
-    if (!strcmp(LISTA_TODOS, split))
+    else if (!strcmp(LISTA_TODOS, split))
         listAll(buff);
 
 }
